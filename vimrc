@@ -31,6 +31,15 @@ Plugin 'pangloss/vim-javascript'
 " For linting
 Plugin 'scrooloose/syntastic'
 
+" To do git stuff inside vim
+Plugin 'tpope/vim-fugitive'
+
+" Treat jsx files as js files for linting
+Plugin 'mxw/vim-jsx'
+
+" Easily toggle comments
+Plugin 'scrooloose/nerdcommenter'
+
 " =================================Finish up==============================
 
 " All of your Plugins must be added before the following line
@@ -107,6 +116,12 @@ map <leader>q :q!<CR>
 
 " Replace tabs with spaces
 map <leader>ts :%s/\t/  /g<CR>
+
+" Quick access to Fugitives
+map <leader>gs :Gstatus<CR>
+
+" Toggle comments
+map <leader>c :call NERDComment(0,"toggle")<CR>
 
 " ============================Configure Nerd Tree=========================
 
