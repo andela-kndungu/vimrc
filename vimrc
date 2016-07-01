@@ -40,6 +40,9 @@ Plugin 'mxw/vim-jsx'
 " Easily toggle comments
 Plugin 'scrooloose/nerdcommenter'
 
+" Code completion as you type
+Plugin 'Valloric/YouCompleteMe'
+
 " =================================Finish up==============================
 
 " All of your Plugins must be added before the following line
