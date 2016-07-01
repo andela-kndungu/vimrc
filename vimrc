@@ -1,6 +1,6 @@
 " =============================================================================
 "                                  VUNDLE
-" ============================================================================= 
+" ============================================================================ 
 
 " ================================Set up==================================
 
@@ -22,6 +22,15 @@ Plugin 'trusktr/seti.vim'
 " To easily browse files 
 Plugin 'scrooloose/nerdtree'
 
+" Autocomplete enclosures
+Plugin 'jiangmiao/auto-pairs'
+
+" Syntax highlighting and improved indentation for JavasScript
+Plugin 'pangloss/vim-javascript'
+
+" For linting
+Plugin 'scrooloose/syntastic'
+
 " =================================Finish up==============================
 
 " All of your Plugins must be added before the following line
@@ -30,11 +39,26 @@ filetype plugin indent on    " required
 
 " =============================================================================
 "                                  VUNDLE
-" ============================================================================= 
+" ============================================================================ 
 
 " =============================================================================
 "                             MY COMMANDS 
 " =============================================================================
+
+" ============================Add Functionality===========================
+
+" Make backspace work normally when in insert mode
+set backspace=indent,eol,start
+
+" ============================File Indentation============================
+
+" By default, the indent is 2 spaces
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+
+" Display tabs so you don't forget to remove them
+set list
 
 " ============================Set up the UI===============================
 
@@ -81,10 +105,46 @@ map <leader>wq :wq<CR>
 " Quit without saving
 map <leader>q :q!<CR>
 
+" Replace tabs with spaces
+map <leader>ts :%s/\t/  /g<CR>
+
 " ============================Configure Nerd Tree=========================
 
 " Show hidden files by default
 let NERDTreeShowHidden=1
+
+" ============================Configure Syntastic=========================
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_check_on_up = 1
+let g:syntastic_javascript_checkers = ['eslint']
+
+" Override eslint with local version where necessary.
+let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+if matchstr(local_eslint, "^\/\\w") == ''
+  let local_eslint = getcwd() . "/" . local_eslint
+endif
+if executable(local_eslint)
+  let g:syntastic_javascript_eslint_exec = local_eslint
+endif
+
+let g:syntastic_error_symbol = '❌'
+let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_warning_symbol = '⚠️'
+let g:syntastic_style_warning_symbol = '💩'
+
+highlight link SyntasticErrorSign SignColumn
+highlight link SyntasticWarningSign SignColumn
+highlight link SyntasticStyleErrorSign SignColumn
+highlight link SyntasticStyleWarningSign SignColumn
 
 " =============================================================================
 "                             MY COMMANDS 
