@@ -43,6 +43,12 @@ Plugin 'scrooloose/nerdcommenter'
 " Code completion as you type
 Plugin 'Valloric/YouCompleteMe'
 
+" Show Git diff
+ Plugin 'airblade/vim-gitgutter'
+
+" Use eslint in node_modules instead of global
+Plugin 'mtscout6/syntastic-local-eslint.vim'
+
 " =================================Finish up==============================
 
 " All of your Plugins must be added before the following line
@@ -145,15 +151,6 @@ let g:syntastic_check_on_wq = 1
 let g:syntastic_check_on_up = 1
 let g:syntastic_javascript_checkers = ['eslint']
 
-" Override eslint with local version where necessary.
-let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
-if matchstr(local_eslint, "^\/\\w") == ''
-  let local_eslint = getcwd() . "/" . local_eslint
-endif
-if executable(local_eslint)
-  let g:syntastic_javascript_eslint_exec = local_eslint
-endif
-
 let g:syntastic_error_symbol = '❌'
 let g:syntastic_style_error_symbol = '⁉️'
 let g:syntastic_warning_symbol = '⚠️'
@@ -167,3 +164,4 @@ highlight link SyntasticStyleWarningSign SignColumn
 " =============================================================================
 "                             MY COMMANDS 
 " =============================================================================
+
