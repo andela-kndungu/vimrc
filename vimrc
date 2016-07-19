@@ -49,6 +49,9 @@ Plugin 'Valloric/YouCompleteMe'
 " Use eslint in node_modules instead of global
 Plugin 'mtscout6/syntastic-local-eslint.vim'
 
+" Mostly because I want to see the git branch on the status line
+Plugin 'vim-airline/vim-airline'
+
 " =================================Finish up==============================
 
 " All of your Plugins must be added before the following line
@@ -63,10 +66,13 @@ filetype plugin indent on    " required
 "                             MY COMMANDS 
 " =============================================================================
 
-" ============================Add Functionality===========================
+" ============================Change Defaults=============================
 
 " Make backspace work normally when in insert mode
 set backspace=indent,eol,start
+
+" Don't automatically insert comments, messes up copy paste
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " ============================File Indentation============================
 
@@ -89,6 +95,14 @@ set number
 
 " Indicate 80 characters mark
 set colorcolumn=80
+
+" ============================Code Folding================================
+
+" Fold based on indentation
+set foldmethod=indent
+
+" Don't fold by default
+set nofoldenable
 
 " ============================Movements===================================
 
@@ -132,10 +146,18 @@ map <leader>gs :Gstatus<CR>
 " Toggle comments
 map <leader>c :call NERDComment(0,"toggle")<CR>
 
+" Refresh current buffer if it has been externally modified
+map <leader>r :edit! <CR>
+
 " ============================Configure Nerd Tree=========================
 
 " Show hidden files by default
 let NERDTreeShowHidden=1
+
+" ============================Configure Nerd Commenter====================
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
 
 " ============================Configure Syntastic=========================
 
