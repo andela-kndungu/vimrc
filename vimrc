@@ -138,7 +138,7 @@ map <leader>wq :wq<CR>
 map <leader>q :q!<CR>
 
 " Replace tabs with spaces
-map <leader>ts :%s/\t/  /g<CR>
+map <leader>ts  mk:%s/\t/  /g<CR>'k
 
 " Quick access to Fugitives
 map <leader>gs :Gstatus<CR>
