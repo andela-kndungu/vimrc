@@ -17,7 +17,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " My favourite theme
-Plugin 'trusktr/seti.vim'
+Plugin 'flazz/vim-colorschemes'
 
 " To easily browse files 
 Plugin 'scrooloose/nerdtree'
@@ -88,7 +88,7 @@ set list
 
 " Use seti colour theme 
 syntax on
-colorscheme seti
+colorscheme distinguished
 
 " Show line numbers by default
 set number
