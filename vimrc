@@ -149,6 +149,9 @@ map <leader>c :call NERDComment(0,"toggle")<CR>
 " Refresh current buffer if it has been externally modified
 map <leader>r :edit! <CR>
 
+" Toggle code fold for current block
+nnoremap f za
+
 " ============================Configure Nerd Tree=========================
 
 " Show hidden files by default
