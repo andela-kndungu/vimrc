@@ -152,6 +152,9 @@ map <leader>r :edit! <CR>
 " Toggle code fold for current block
 nnoremap f za
 
+" Unfold all folded blocks 
+nnoremap uf zO
+
 " ============================Configure Nerd Tree=========================
 
 " Show hidden files by default
@@ -185,6 +188,11 @@ highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
+
+" ============================Configure YCM===============================
+
+" The preview window is too distracting
+set completeopt-=preview
 
 " =============================================================================
 "                             MY COMMANDS 
