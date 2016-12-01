@@ -52,6 +52,15 @@ Plugin 'mtscout6/syntastic-local-eslint.vim'
 " Mostly because I want to see the git branch on the status line
 Plugin 'vim-airline/vim-airline'
 
+" Typescript syntax highlighting
+Plugin 'HerringtonDarkholme/yats.vim'
+
+" For tsuquyomi
+Plugin 'Shougo/vimproc.vim'
+
+" Turn vim into a typescript ide
+Plugin 'Quramy/tsuquyomi'
+
 " =================================Finish up==============================
 
 " All of your Plugins must be added before the following line
@@ -83,6 +92,11 @@ set tabstop=2
 
 " Display tabs so you don't forget to remove them
 set list
+
+" ============================Files ======================================
+
+" Treat tsx files as typescript
+autocmd BufEnter *.tsx set filetype=typescript
 
 " ============================Set up the UI===============================
 
@@ -155,6 +169,12 @@ nnoremap f za
 " Unfold all folded blocks 
 nnoremap uf zO
 
+" Lint typescript files
+map <leader>tl :let g:syntastic_typescript_checkers = ['tslint'] <CR>
+
+" Check for typescript compilation errors
+map <leader>tc :let g:syntastic_typescript_checkers = ['tsuquyomi'] <CR>
+
 " ============================Configure Nerd Tree=========================
 
 " Show hidden files by default
@@ -178,9 +198,10 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_check_on_up = 1
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_typescript_checkers=['tsuquyomi']
 
 let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_style_error_symbol = '🔴'
 let g:syntastic_warning_symbol = '⚠️'
 let g:syntastic_style_warning_symbol = '💩'
 
@@ -188,6 +209,9 @@ highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
+
+" Dont show quick fix window, it's annoying
+let g:tsuquyomi_disable_quickfix = 1
 
 " ============================Configure YCM===============================
 
