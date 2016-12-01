@@ -52,14 +52,17 @@ Plugin 'mtscout6/syntastic-local-eslint.vim'
 " Mostly because I want to see the git branch on the status line
 Plugin 'vim-airline/vim-airline'
 
-" Typescript syntax highlighting
-Plugin 'HerringtonDarkholme/yats.vim'
-
 " For tsuquyomi
 Plugin 'Shougo/vimproc.vim'
 
 " Turn vim into a typescript ide
 Plugin 'Quramy/tsuquyomi'
+
+" Syntax highlighting for Typescript
+Plugin 'leafgarland/typescript-vim'
+
+" Proper indentation for tsx files
+Plugin 'ianks/vim-tsx'
 
 " =================================Finish up==============================
 
@@ -92,11 +95,6 @@ set tabstop=2
 
 " Display tabs so you don't forget to remove them
 set list
-
-" ============================Files ======================================
-
-" Treat tsx files as typescript
-autocmd BufEnter *.tsx set filetype=typescript
 
 " ============================Set up the UI===============================
 
