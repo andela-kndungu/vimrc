@@ -44,7 +44,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'Valloric/YouCompleteMe'
 
 " Show Git diff
- Plugin 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
 
 " Use eslint in node_modules instead of global
 Plugin 'mtscout6/syntastic-local-eslint.vim'
