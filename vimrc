@@ -78,7 +78,7 @@ filetype plugin indent on    " required
 " ============================================================================ 
 
 " =============================================================================
-"                             MY COMMANDS 
+"                             MY COMMANDS
 " =============================================================================
 
 " ============================Change Defaults=============================
@@ -101,15 +101,21 @@ set list
 
 " ============================Set up the UI===============================
 
-" Use seti colour theme 
+" Set colour scheme
 syntax on
-colorscheme distinguished
+colorscheme evening
 
 " Show line numbers by default
 set number
 
 " Indicate 80 characters mark
 set colorcolumn=80
+
+" 80 characters column colour
+highlight ColorColumn ctermbg=DarkGrey
+
+" EOL character's colour
+highlight NonText ctermfg=Cyan
 
 " ============================Code Folding================================
 
