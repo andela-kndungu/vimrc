@@ -64,9 +64,6 @@ Plugin 'leafgarland/typescript-vim'
 " Proper indentation for tsx files
 Plugin 'ianks/vim-tsx'
 
-" Elixir support
-Plugin 'elixir-lang/vim-elixir'
-
 " =================================Finish up==============================
 
 " All of your Plugins must be added before the following line
